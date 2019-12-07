@@ -1,24 +1,28 @@
-a = 4;//radius
-b = 3;//joint radius
-c = 3;//handle thickness
-d = 15;//handle radius
-$fn= 65;
+a = 2;//stick radius
+b = 1.5;//joint radius
+c = 1.5;//handle thickness
+d = 7;//handle radius
+e = 60;//handle polygon
+f = 3;//handle hole radius
+x =7;//handle x
+y =8;//handle y
+z =c/2;//handle z
 
 module target(){
     union(){
         rotate([0,90,0])
-            cylinder(h = 40, r1 = a, r2 = a);//stick
+            cylinder(h = 25, r = a, $fn = 40);//stick
         rotate([0,90,0])
-            cylinder(h = 50, r1 = b, r2 = b);//3mm joint
+            cylinder(h = 28.5, r = b, $fn = 12);//3mm joint
         
 //R_handle
-        translate([12,-16.5,-1.5]){
-            cylinder(h = c, r1 = d, r2 = d);
+        translate([x,-y,-z]){
+            cylinder(h = c, r = d, $fn = e);
             }
       
 //L_handle
-        translate([12,16.5,-1.5]){
-            cylinder(h = c, r1 = d, r2 = d);
+        translate([x,y,-z]){
+            cylinder(h = c, r = d, $fn = e);
         }
     
     }
@@ -26,13 +30,13 @@ module target(){
 
 module tool(){
 //R_hole
-     translate([12,-16.5,-1.5]){
-          cylinder(h = c, r1 = 6, r2 = 6);
+     translate([x,-y,-z]){
+          cylinder(h = c, r = f, $fn = e);
             }
 
 //L_hole
-     translate([12,16.5,-1.5]){
-          cylinder(h = c, r1 = 6, r2 = 6);
+     translate([x,y,-z]){
+          cylinder(h = c, r = f, $fn =e);
             }
         }
         
