@@ -2,7 +2,7 @@ a = 4;//radius
 b = 3;//joint radius
 c = 3;//handle thickness
 d = 15;//handle radius
-$fn= 20;
+$fn= 65;
 
 module target(){
     union(){
@@ -30,7 +30,7 @@ module tool(){
           cylinder(h = c, r1 = 6, r2 = 6);
             }
 
-//L_hole(
+//L_hole
      translate([12,16.5,-1.5]){
           cylinder(h = c, r1 = 6, r2 = 6);
             }
