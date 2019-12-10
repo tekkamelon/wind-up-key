@@ -1,4 +1,4 @@
-a = 2;//stick radius
+a = 1.85;//stick radius
 b = 1.5;//joint radius
 c = 1.5;//handle thickness
 d = 7;//handle radius
@@ -36,7 +36,7 @@ module tool(){
 
 //L_hole
      translate([x,y,-z]){
-          cylinder(h = c, r = f, $fn =e);
+          cylinder(h = c, r = f, $fn = e);
             }
         }
         
