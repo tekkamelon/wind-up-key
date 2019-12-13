@@ -1,8 +1,8 @@
-a = 1.85;//stick radius
-b = 1.5;//joint radius
+a = 1.7;//stick radius
+b = 2.8/2;//joint diameter/2
 c = 1.5;//handle thickness
 d = 7;//handle radius
-e = 60;//handle polygon
+e = 55;//handle polygon
 f = 3;//handle hole radius
 x = 7;//handle x
 y = 8;//handle y
@@ -13,7 +13,7 @@ module target(){
         rotate([0,90,0])
             cylinder(h = 25, r = a, $fn = 40);//stick
         rotate([0,90,0])
-            cylinder(h = 28.5, r = b, $fn = 15);//3mm joint
+            cylinder(h = 28.5, r = b, $fn = 12);//3mm joint
         
 //R_handle
         translate([x,-y,-z]){
