@@ -1,5 +1,5 @@
 a = 1.7;//stick radius
-b = 2.8/2;//joint diameter/2
+b = 2.9/2;//joint diameter/2
 c = 1.5;//handle thickness
 d = 7;//handle radius
 e = 55;//handle polygon
