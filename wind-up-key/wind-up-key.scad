@@ -1,5 +1,5 @@
 a = 1.7;//stick radius
-b = 2.9/2;//joint diameter/2
+b = 2.9;//joint diameter
 c = 1.5;//handle thickness
 d = 7;//handle radius
 e = 55;//handle polygon
@@ -10,35 +10,38 @@ z = c/2;//handle z
 
 module target(){
     union(){
-        rotate([0,90,0])
-            cylinder(h = 25, r = a, $fn = 40);//stick
-        rotate([0,90,0])
-            cylinder(h = 28.5, r = b, $fn = 12);//3mm joint
+    //stick
+        rotate([0,90,0]){
+            cylinder(h = 25, r = a, $fn = 40);
+        }
+    //joint
+        rotate([0,90,0]){
+            cylinder(h = 28.5, d = b, $fn = 12);//diameter
+        }
         
-//R_handle
+    //handle L
         translate([x,-y,-z]){
             cylinder(h = c, r = d, $fn = e+5);
-            }
-      
-//L_handle
+        }
+            
+    //handle R
         translate([x,y,-z]){
             cylinder(h = c, r = d, $fn = e+5);
         }
-    
     }
 }
 
 module tool(){
-//R_hole
-     translate([x,-y,-z]){
-          cylinder(h = c, r = f, $fn = e);
-            }
+    //hole L
+        translate([x,-y,-z]){
+            cylinder(h = c, r = f, $fn = e);
+     }
 
-//L_hole
-     translate([x,y,-z]){
-          cylinder(h = c, r = f, $fn = e);
-            }
-        }
+    //hole R
+        translate([x,y,-z]){
+            cylinder(h = c, r = f, $fn = e);
+         }
+     }
         
 difference(){
     target();
