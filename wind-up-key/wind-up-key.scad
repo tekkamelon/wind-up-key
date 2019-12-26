@@ -12,11 +12,8 @@ module stick(){
     union(){
         rotate([0,90,0]){
             cylinder(h = 25, r = a, $fn = 40);
-        }
-        rotate([0,90,0]){
             cylinder(h = 28.5, d = b, $fn = 12);//diameter
         }
-        
     }
 }
 
@@ -41,4 +38,4 @@ union(){
    stick();
    L_handle();
    R_handle();
-    }
+}
