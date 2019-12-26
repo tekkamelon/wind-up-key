@@ -8,42 +8,37 @@ x = 7;//handle x
 y = 8;//handle y
 z = c/2;//handle z
 
-module target(){
+module stick(){
     union(){
-    //stick
         rotate([0,90,0]){
             cylinder(h = 25, r = a, $fn = 40);
         }
-    //joint
         rotate([0,90,0]){
             cylinder(h = 28.5, d = b, $fn = 12);//diameter
         }
         
-    //handle L
-        translate([x,-y,-z]){
-            cylinder(h = c, r = d, $fn = e+5);
-        }
-            
-    //handle R
-        translate([x,y,-z]){
-            cylinder(h = c, r = d, $fn = e+5);
-        }
     }
 }
 
-module tool(){
-    //hole L
+module L_handle(){
+    difference(){
+        translate([x,-y,-z]){
+            cylinder(h = c, r = d, $fn = e+5);
+        }
         translate([x,-y,-z]){
             cylinder(h = c, r = f, $fn = e);
-     }
+        }   
+    }
+}
 
-    //hole R
-        translate([x,y,-z]){
-            cylinder(h = c, r = f, $fn = e);
-         }
-     }
-        
-difference(){
-    target();
-    tool();
+module R_handle(){
+    mirror([0,1,0]){
+        L_handle();
+    }
+}
+
+union(){
+   stick();
+   L_handle();
+   R_handle();
     }
