@@ -22,8 +22,8 @@ module handle(){
             translate([handle_x, y, handle_z]){
                 cylinder(h = handle_thickness, r = handle_radius, $fn = handle_polygon+5);
             }
-            translate([handle_x, y, handle_z]){
-                cylinder(h = handle_thickness, r = handle_hole_radius, $fn = handle_polygon);
+            translate([handle_x, y, handle_z-0.75]){
+                cylinder(h = handle_thickness+1.5, r = handle_hole_radius, $fn = handle_polygon);
             }
         }
     }
