@@ -1,10 +1,4 @@
-stick_radius=1.7;
-joint_diameter=2.9;
-handle_radius=7;
-handle_hole_radius=3;
-handle_x=7;
-
-module stick(){
+module stick(stick_radius=1.7, joint_diameter=2.9){
     union(){
         rotate([0,90,0]){
             cylinder(h=25, r=stick_radius, $fn=40);
@@ -21,10 +15,10 @@ module handle_basic(handle_thickness, handle_radius, handle_polygon){
     }
 }
 
-module handle(){
+module handle(handle_thickness=1.5, handle_radius=7){
 	difference(){
-		handle_basic(1.5, 7, 60);
-		handle_basic(1.5, 3, 55 );
+		handle_basic(handle_thickness, handle_radius, 60);
+		handle_basic(handle_thickness+1, handle_radius-4, 55);
 	}
 }
 
