@@ -1,6 +1,6 @@
 module stick(stick_radius=1.7, joint_diameter=2.9){
     union(){
-        rotate([0,90,0]){
+        rotate([0, 90, 0]){
             cylinder(h=25, r=stick_radius, $fn=40);
             cylinder(h=28.5, d=joint_diameter, $fn=12);
         }
