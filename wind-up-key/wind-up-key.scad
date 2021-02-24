@@ -1,3 +1,13 @@
+//ハンドルの基本部分
+module handle_basic(handle_thickness, handle_radius, handle_polygon){
+    for(y=[-8:16:8]){
+		translate([7, y, -1.5/2]){ 
+			cylinder(h=handle_thickness, r=handle_radius, $fn=handle_polygon);
+		}
+    }
+}
+
+//持ち手
 module stick(stick_radius=1.7, joint_diameter=2.9){
     union(){
         rotate([0, 90, 0]){
@@ -7,14 +17,7 @@ module stick(stick_radius=1.7, joint_diameter=2.9){
     }
 }
 
-module handle_basic(handle_thickness, handle_radius, handle_polygon){
-    for(y=[-8:16:8]){
-		translate([7, y, -1.5/2]){ 
-			cylinder(h=handle_thickness, r=handle_radius, $fn=handle_polygon);
-		}
-    }
-}
-
+//ハンドル
 module handle(handle_thickness=1.5, handle_radius=7){
 	difference(){
 		handle_basic(handle_thickness, handle_radius, 60);
@@ -22,6 +25,7 @@ module handle(handle_thickness=1.5, handle_radius=7){
 	}
 }
 
+//各部の結合
 union(){
    stick();
    handle();
